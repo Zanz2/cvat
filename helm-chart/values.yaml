@@ -14,7 +14,16 @@ cvat:
       labels: {}
       annotations: {}
       resources: {}
-      affinity: {}
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                - key: tier
+                  operator: In
+                  values:
+                  - backend
+              topologyKey: "kubernetes.io/hostname"
       tolerations: []
       envs:
         ALLOWED_HOSTS: "*"
@@ -28,7 +37,16 @@ cvat:
         labels: {}
         annotations: {}
         resources: {}
-        affinity: {}
+        affinity:
+          podAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions:
+                  - key: tier
+                    operator: In
+                    values:
+                    - backend
+                topologyKey: "kubernetes.io/hostname"
         tolerations: []
         additionalEnv: []
         additionalVolumes: []
@@ -38,7 +56,16 @@ cvat:
         labels: {}
         annotations: {}
         resources: {}
-        affinity: {}
+        affinity:
+          podAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions:
+                  - key: tier
+                    operator: In
+                    values:
+                    - backend
+                topologyKey: "kubernetes.io/hostname"
         tolerations: []
         additionalEnv: []
         additionalVolumes: []
@@ -48,7 +75,16 @@ cvat:
         labels: {}
         annotations: {}
         resources: {}
-        affinity: {}
+        affinity:
+          podAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions:
+                  - key: tier
+                    operator: In
+                    values:
+                    - backend
+                topologyKey: "kubernetes.io/hostname"
         tolerations: []
         additionalEnv: []
         additionalVolumes: []
@@ -58,7 +94,16 @@ cvat:
         labels: {}
         annotations: {}
         resources: {}
-        affinity: {}
+        affinity:
+          podAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions:
+                  - key: tier
+                    operator: In
+                    values:
+                    - backend
+                topologyKey: "kubernetes.io/hostname"
         tolerations: []
         additionalEnv: []
         additionalVolumes: []
@@ -68,7 +113,16 @@ cvat:
         labels: {}
         annotations: {}
         resources: {}
-        affinity: {}
+        affinity:
+          podAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions:
+                  - key: tier
+                    operator: In
+                    values:
+                    - backend
+                topologyKey: "kubernetes.io/hostname"
         tolerations: []
         additionalEnv: []
         additionalVolumes: []
@@ -78,7 +132,16 @@ cvat:
       labels: {}
       annotations: {}
       resources: {}
-      affinity: {}
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                - key: tier
+                  operator: In
+                  values:
+                  - backend
+              topologyKey: "kubernetes.io/hostname"
       tolerations: []
       additionalEnv: []
       additionalVolumes: []
