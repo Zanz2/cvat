@@ -110,6 +110,23 @@ function fetchAll(url, filter = {}): Promise<any> {
     });
 }
 
+function getCookie(name) { // tus missing csrf fix
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+
 async function chunkUpload(file: File, uploadConfig) {
     const params = enableOrganization();
     const {
@@ -117,6 +134,7 @@ async function chunkUpload(file: File, uploadConfig) {
     } = uploadConfig;
     const { totalSentSize } = uploadConfig;
     const uploadResult = { totalSentSize };
+    const csrftoken = getCookie('csrftoken');
     return new Promise((resolve, reject) => {
         const upload = new tus.Upload(file, {
             endpoint,
@@ -127,6 +145,7 @@ async function chunkUpload(file: File, uploadConfig) {
             },
             headers: {
                 Authorization: Axios.defaults.headers.common.Authorization,
+                "X-Csrftoken": csrftoken,
             },
             chunkSize,
             retryDelays: null,
