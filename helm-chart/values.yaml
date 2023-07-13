@@ -113,16 +113,7 @@ cvat:
         labels: {}
         annotations: {}
         resources: {}
-        affinity:
-          podAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-              - labelSelector:
-                  matchExpressions:
-                  - key: tier
-                    operator: In
-                    values:
-                    - backend
-                topologyKey: "kubernetes.io/hostname"
+        affinity: {}
         tolerations: []
         additionalEnv: []
         additionalVolumes: []
